@@ -1,0 +1,125 @@
+  body {
+    background: linear-gradient(135deg, #E8F4F2 0%, #FFFFFF 100%);
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333333;
+    min-height: 100vh;
+  }
+  
+  .container {
+      max-width: 400px;
+      background: #ffffff;
+      color: #333333;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+  }
+
+  h1, h2, h3 {
+    color: #222222; 
+    font-weight: 600; 
+  }
+
+  input {
+    color: #333333;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+  }
+
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 190, 190, 0.2);
+  }
+
+  .search input::placeholder {
+    color: #999999;
+  }
+
+  input[type=text],
+  input[type=text]:focus {
+    color: #333333;
+    border: none;
+    background: rgba(0,0,0,0.2);
+    max-width: 400px;
+  }
+
+  .todos li {
+    background: #E8F4F2;;
+    color: #333333;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .todos li span {
+    color: #333;
+    font-weight: 500;
+  }
+
+  .todos li:hover {
+    background: #e0f7f4; 
+    transform: translateY(-2px);
+  }
+
+  .list-group-item {
+    width: 100%;
+  }
+
+  .no-todos {
+    text-align: center;
+    color: #bbb;
+    font-style: italic;
+    margin-top: 1rem;
+    display: none; 
+  }  
+
+  .todo-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .todo-actions i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .complete-cx {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .complete-cx:hover {
+    color: green;
+  }
+
+  .completed span {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  .list-group-item.completed {
+    background-color: #d1e0dc; 
+  }
+  
+  .delete{
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .delete:hover {
+    color: #CC0000;
+  }
+
+  .filtered {
+    display: none !important;
+  }
+
+  .add .text-light {
+    color: #333333 !important;
+  }

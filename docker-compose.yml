@@ -1,0 +1,34 @@
+#Handles database and backend data
+
+services:
+  db: #runs PostgreSQL database server
+    image: postgres:14
+    container_name: todo_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: tododb
+    ports:
+      - "5433:5432" #maps internal port to 5432 (default) to local machine's port 5433. 
+    volumes:
+      - db_data:/var/lib/postgresql/data #persists the DB files so that losing data can be prevented.
+
+  app: #runs backend Node.js server (which connects to the DB)
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: todo_app
+    environment:
+      DATABASE_URL: postgresql://myuser:mypassword@db:5432/tododb #used to connect to PostgreSQL DB
+    ports:
+      - "4000:4000" #local backend port
+    depends_on:
+      - db
+    volumes: #mounts local backend source files and frontend folder into container. Done to make changes while still using Docker.
+      - ./backend/src:/usr/src/app/src #mounts src folder to run source files
+      - ./backend/server.js:/usr/src/app/server.js 
+      - ./backend/package.json:/usr/src/app/package.json #handles local dependancies
+      - ./frontend:/usr/src/app/frontend #not being utilized for Dockerfile (but could be used for future additions)
+
+volumes: #stores PostgreSQL database files so that data isn't lost when restarting.
+  db_data: 

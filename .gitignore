@@ -1,0 +1,6 @@
+node_modules/
+.env
+node_modules/
+backend/node_modules/
+
+#this was done so that we would never commit secrets or unecessary folders. 
