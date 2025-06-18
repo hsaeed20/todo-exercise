@@ -39,7 +39,8 @@ const updateTodo = async(req, res) => {
         if (!updatedTodo) {
           return res.status(404).json({ error: 'Todo not found' });
         }
-    
+        
+        console.log('Todo updated: ', updatedTodo); 
         res.json(updatedTodo);
       } catch (err) {
         console.error(err);
@@ -55,6 +56,7 @@ const deleteTodo = async (req, res) => {
       if (!deletedTodo) {
         return res.status(404).json({ error: 'Todo not found' }); //404 Not Found
       }
+      console.log('Todo Deleted: ', deletedTodo);
       res.status(200).json(deletedTodo); //200 Ok 
     } catch (err) {
       console.error('Error deleting todo:', err);
