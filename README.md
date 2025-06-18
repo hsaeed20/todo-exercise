@@ -1,6 +1,6 @@
 Q: What is this? 
 
-A: This is a simple to-do list that will create, update, read, and delete your todo. It was created using Node.js, PostgreSQL, and Docker on backend whereas on the frontend Jquery, HTML, CSS3, and frameworks such as Bootstrap and Font Awesome were utilized. 
+A: This is a simple to-do list that will create, update, read, and delete your todo. It was created using Node.js, PostgreSQL, and Docker on backend whereas on the frontend jQuery, HTML, CSS3, and frameworks such as Bootstrap and Font Awesome were utilized. 
 
 Q: How do I run it? 
 
