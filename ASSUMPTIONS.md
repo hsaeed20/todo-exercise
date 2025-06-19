@@ -18,6 +18,11 @@ This document details all the assumptions made during the development of this to
 - No advanced user roles, permissions, or privilege levels are included.
 - For this exercise, no advanced input validation or sanitization was implemented beyond basic server-side handling.
 
+## ▷ Additional Functional Behavior
+- Users can delete a todo item regardless of whether it is marked complete or incomplete. 
+- A todo's status can be toggled between complete and incomplete. 
+- The project was submitted via a GitHub repository for easy access and review.
+
 ## ▷ Frontend
 - A simple frontend stack was used with **HTML, CSS3, jQuery, Bootstrap**, and **Font Awesome** for styling and interactivity. 
 - No frontend frameworks (e.g., React or Angular) were used since they were not required for this exercise. 
