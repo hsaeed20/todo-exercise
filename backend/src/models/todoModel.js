@@ -1,6 +1,9 @@
 //Importing pool 
 const pool = require('../db');
 
+//Note: For DB calls to work, Async is required to get correct response
+//hence why async and await are needed. 
+
 // Gets all todos
 const getAllTodos = async () => {
   const result = await pool.query('SELECT * FROM todos ORDER BY id ASC');

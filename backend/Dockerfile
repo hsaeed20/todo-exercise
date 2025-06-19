@@ -1,5 +1,7 @@
 #This file will handle building and packaging the backend.
-#Will be used to run docker on any platform without the need to run it on a local environment.
+
+#Will be used to run docker on any platform
+#without the need to run it on a local environment.
 
 #Starts the container. 
 FROM node:18
@@ -24,7 +26,7 @@ EXPOSE 4000
 
 #Only copy wait-for.sh once
 COPY wait-for.sh .
-#Then copy the rest of the code, excluding it in .dockerignore if needed.
+#allows build cache to be more efficient
 
 #Run server 
 CMD ["./wait-for.sh", "db", "5432", "--", "node", "server.js"]

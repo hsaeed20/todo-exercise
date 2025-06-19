@@ -96,9 +96,9 @@ $(document).ready(function() {
             
             // Move to top or bottom depending on state
             if (isCompleted) {
-                $todo.appendTo($list); // send to end
+                $todo.appendTo($list); 
             } else {
-                $todo.prependTo($list); // bring back to top
+                $todo.prependTo($list); 
             }
           },
           error: function (err) {

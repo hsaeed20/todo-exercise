@@ -9,7 +9,9 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: tododb
     ports:
-      - "5433:5432" #maps internal port to 5432 (default) to local machine's port 5433. 
+      - "5433:5432" #left: host right: container
+      #maps container port to 5432 (postgres container) to local machine's port 5433.
+      #done to avoid local Postgres and Docker Postgres conflict.
     volumes:
       - db_data:/var/lib/postgresql/data #persists the DB files so that losing data can be prevented.
 
@@ -21,14 +23,14 @@ services:
     environment:
       DATABASE_URL: postgresql://myuser:mypassword@db:5432/tododb #used to connect to PostgreSQL DB
     ports:
-      - "4000:4000" #local backend port
+      - "4000:4000" #local backend port. Since the port is only being used here. It's fine to have the same ports
     depends_on:
       - db
     volumes: #mounts local backend source files and frontend folder into container. Done to make changes while still using Docker.
       - ./backend/src:/usr/src/app/src #mounts src folder to run source files
-      - ./backend/server.js:/usr/src/app/server.js 
+      - ./backend/server.js:/usr/src/app/server.js #mounts server.js into container
       - ./backend/package.json:/usr/src/app/package.json #handles local dependancies
-      - ./frontend:/usr/src/app/frontend #not being utilized for Dockerfile (but could be used for future additions)
+      - ./frontend:/usr/src/app/frontend #mounts local frontend folder into container
 
 volumes: #stores PostgreSQL database files so that data isn't lost when restarting.
   db_data: 

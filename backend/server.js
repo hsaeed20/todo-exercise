@@ -1,9 +1,9 @@
-const path = require('path');
-const express = require('express');
-const app = require(path.join(__dirname, 'src', 'app'));
-require('dotenv').config();
+const path = require('path'); //hanldes file paths
+const express = require('express'); //Loads express library
+const app = require(path.join(__dirname, 'src', 'app')); //Loads Express app
+require('dotenv').config(); //handles confidential info not being seen in server.
 
-const { Pool } = require('pg');
+const { Pool } = require('pg'); // Manages a pool of reusable TCP connections for running Postgres queries efficiently
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 4000;
   }
 })();
 
-app.use(express.static('frontend'));
+app.use(express.static('frontend')); /// Serve static frontend files (HTML, CSS, JS) from the 'frontend' folder
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
