@@ -30,6 +30,11 @@ This document details all the assumptions made during the development of this to
 ## ▷ Security & Production Considerations 
 - This app was intended to demonstrate the todo list functionality Docker deployment. It is **not intended for production use**. 
 
+## ▷ What Could've Been Addressed 
+- Handling a graceful shutdown instead of relying on manually stopping Docker with CTRL-C.
+- Accounting for the amount of requests multiple users would do at once. 
+- Having more security and authentication measures. 
+- Building the frontend with React to provide a more structured, maintainable, and modern UI. 
 
 # Conclusion: 
 
