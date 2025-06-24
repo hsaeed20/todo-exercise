@@ -33,8 +33,12 @@ This document details all the assumptions made during the development of this to
 ## ▷ What Could've Been Addressed 
 - Handling a graceful shutdown instead of relying on manually stopping Docker with CTRL-C.
 - Accounting for the amount of requests multiple users would do at once. 
-- Having more security and authentication measures. 
-- Building the frontend with React to provide a more structured, maintainable, and modern UI. 
+- Having stronger security and authentication measures. 
+- Handling sudden server crashes via using a Process Manager like PM2. However using Docker restart on the yml also is applicable. 
+- Using a structured logging library like `winston` or `pino` for clearer, production-grade logs; for this exercise, I prioritized simplicity and accessibility.
+- Integrating a centralized logging solution like Splunk to monitor application health and set up alerts.
+- Adding a dedicated /health endpoint in Express and a healthcheck in the docker-compose.yml to ensure the server’s availability can be monitored and restarted automatically if needed.
+- Rebuilding the frontend with React to provide a more structured, maintainable, and modern UI. 
 
 # Conclusion: 
 
